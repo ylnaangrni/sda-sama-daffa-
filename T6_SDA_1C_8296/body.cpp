@@ -171,3 +171,23 @@ void cariDataKota(string namaKota)
     }
     std::cout << "Kota tidak ditemukan." << std::endl;
 }
+
+void cariAnggota(string namaKota, string namaPenduduk, int usiaPenduduk) {
+    Kota* temp = head;
+    while (temp) {
+        if (temp->nama == namaKota) {
+            Penduduk* current = temp->penduduk;
+            while (current) {
+                if (current->nama == namaPenduduk && current->usia == usiaPenduduk) {
+                    std::cout << "Anggota ditemukan di kota " << namaKota << " dengan nama " << namaPenduduk << " dan usia " << usiaPenduduk << std::endl;
+                    return;
+                }
+                current = current->next;
+            }
+            std::cout << "Anggota tidak ditemukan di kota " << namaKota << " dengan nama " << namaPenduduk << " dan usia " << usiaPenduduk << std::endl;
+            return;
+        }
+        temp = temp->next;
+    }
+    std::cout << "nama tidak ditemukan." << std::endl;
+}

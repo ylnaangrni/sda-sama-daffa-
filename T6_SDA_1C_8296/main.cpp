@@ -22,6 +22,7 @@ int main()
         std::cout << "| 6. Tampilkan daftar kota            |\n";
         std::cout << "| 7. Tampilkan daftar anggota kota    |\n";
         std::cout << "| 8. Cari data kota                   |\n";
+        std::cout << "| 9. Cari data anggota                |\n";
         std::cout << "| 0. Keluar                           |\n";
         std::cout << "=======================================\n";
         std::cout << "Pilihan: ";
@@ -69,6 +70,7 @@ int main()
             std::cin >> usiaPenduduk;
             tambahPendudukAkhir(namaKota, namaPenduduk, usiaPenduduk);
             std::cout << "Anggota " << namaPenduduk << " (usia " << usiaPenduduk << ") berhasil ditambahkan ke kota " << namaKota << ".\n";
+            break;
         case '5':
             std::cout << "Masukkan nama kota: ";
             std::cin >> namaKota;
@@ -92,12 +94,16 @@ int main()
             std::cin >> namaKota;
             cariDataKota(namaKota);
             break;
-    
-        default:
-            std::cout << "Pilihan tidak valid. Silakan pilih lagi.\n";
+        case '9':
+            std::cout << "Masukkan nama kota: ";
+            std::cin >> namaKota;
+            std::cout << "Masukkan nama anggota yang ingin dicari: ";
+            std::cin >> namaPenduduk;
+            std::cout << "Masukkan usia anggota yang ingin dicari: ";
+            std::cin >> usiaPenduduk;
+            cariAnggota(namaKota, namaPenduduk, usiaPenduduk);
+            break;
         }
-
-       
         std::cout << std::endl;
     } while (opsi != '0');
 

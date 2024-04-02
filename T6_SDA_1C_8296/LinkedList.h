@@ -34,5 +34,6 @@ void hapusPenduduk(string namaKota, string namaPenduduk);
 void tampilkanDaftarKota();
 void tampilkanDaftarAnggota(string namaKota);
 void cariDataKota(string namaKota);
+void cariAnggota(string namaKota, string namaPenduduk, int usiaPenduduk);
 
 #endif
