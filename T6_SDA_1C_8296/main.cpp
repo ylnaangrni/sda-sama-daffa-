@@ -74,7 +74,7 @@ int main()
             std::cin >> namaKota;
             std::cout << "Masukkan nama anggota yang ingin dihapus: ";
             std::cin >> namaPenduduk;
-            hapusPenduduk(namaKota, namaPenduduk, usiaPenduduk);
+            hapusPenduduk(namaKota, namaPenduduk);
             std::cout << "Anggota " << namaPenduduk << " berhasil dihapus dari kota " << namaKota << ".\n";
             break;
         case '6':

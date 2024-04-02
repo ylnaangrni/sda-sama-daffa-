@@ -94,29 +94,28 @@ void tambahPendudukTengah(string namaKota, string namaPenduduk, int usiaPenduduk
 }
 
 
-void hapusPenduduk( std::string& namaKota, std::string& namaPenduduk) {
+void hapusPenduduk(string namaKota, string namaPenduduk) {
     Kota* temp = head;
     while (temp) {
         if (temp->nama == namaKota) {
-            Penduduk* sama = nullptr;
             Penduduk* current = temp->penduduk;
+            Penduduk* previous = nullptr;
             while (current) {
                 if (current->nama == namaPenduduk) {
-                    if (sama == nullptr) {
+                    if (previous == nullptr) { // Jika yang akan dihapus adalah elemen pertama
                         temp->penduduk = current->next;
                         delete current;
                         std::cout << "Penduduk dengan nama " << namaPenduduk << " dihapus dari kota " << namaKota << "." << std::endl;
                         return;
                     } else {
-                        sama->next = current->next;
+                        previous->next = current->next;
                         delete current;
                         std::cout << "Penduduk dengan nama " << namaPenduduk << " dihapus dari kota " << namaKota << "." << std::endl;
                         return;
                     }
-                } else {
-                    sama = current;
-                    current = current->next;
                 }
+                previous = current;
+                current = current->next;
             }
             std::cout << "Penduduk dengan nama " << namaPenduduk << " tidak ditemukan di kota " << namaKota << "." << std::endl;
             return;
@@ -125,6 +124,7 @@ void hapusPenduduk( std::string& namaKota, std::string& namaPenduduk) {
     }
     std::cout << "Kota tidak ditemukan." << std::endl;
 }
+
 
 void tampilkanDaftarKota()
 {
@@ -136,7 +136,7 @@ void tampilkanDaftarKota()
     }
 }
 
-void tampilkanDaftarAnggota(std::string namaKota)
+void tampilkanDaftarAnggota(string namaKota)
 {
     Kota *temp = head;
     while (temp)
@@ -157,7 +157,7 @@ void tampilkanDaftarAnggota(std::string namaKota)
     std::cout << "Kota tidak ditemukan." << std::endl;
 }
 
-void cariDataKota(std::string namaKota)
+void cariDataKota(string namaKota)
 {
     Kota *temp = head;
     while (temp)
