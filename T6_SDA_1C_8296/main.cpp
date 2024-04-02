@@ -37,7 +37,6 @@ int main()
             std::cout << "Masukkan nama kota: ";
             std::cin >> namaKota;
             tambahKota(namaKota);
-            std::cout << "Kota " << namaKota << " berhasil ditambahkan.\n";
             break;
         case '2':
             std::cout << "Masukkan nama kota: ";

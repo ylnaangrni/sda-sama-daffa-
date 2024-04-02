@@ -18,6 +18,8 @@ void tambahKota(string namaKota)
     Kota *newKota = new Kota(namaKota);
     newKota->next = head;
     head = newKota;
+
+    std::cout << "Kota " << namaKota << " berhasil ditambahkan.\n";
 }
 
 void tambahPenduduk(string namaKota, string namaPenduduk, int usiaPenduduk)
