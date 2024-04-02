@@ -1,3 +1,7 @@
+// Nama Anggota      : - Muhammad Daffa Tridya Atha (231511082)
+//                     - Yulina Anggraeni           (231511096)
+// Tanggal Pembuatan : 02/04/2024
+
 #include "LinkedList.h"
 
 int main()
