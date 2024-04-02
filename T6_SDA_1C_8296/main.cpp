@@ -69,13 +69,12 @@ int main()
             std::cin >> usiaPenduduk;
             tambahPendudukAkhir(namaKota, namaPenduduk, usiaPenduduk);
             std::cout << "Anggota " << namaPenduduk << " (usia " << usiaPenduduk << ") berhasil ditambahkan ke kota " << namaKota << ".\n";
-    
         case '5':
             std::cout << "Masukkan nama kota: ";
             std::cin >> namaKota;
             std::cout << "Masukkan nama anggota yang ingin dihapus: ";
             std::cin >> namaPenduduk;
-            hapusPenduduk(namaKota, namaPenduduk);
+            hapusPenduduk(namaKota, namaPenduduk, usiaPenduduk);
             std::cout << "Anggota " << namaPenduduk << " berhasil dihapus dari kota " << namaKota << ".\n";
             break;
         case '6':

@@ -94,30 +94,31 @@ void tambahPendudukTengah(string namaKota, string namaPenduduk, int usiaPenduduk
 }
 
 
-void hapusPenduduk(string namaKota, string namaPenduduk)
-{
-    Kota *temp = head;
-    while (temp)
-    {
-        if (temp->nama == namaKota)
-        {
-            Penduduk *prev = nullptr;
-            Penduduk *current = temp->penduduk;
-            while (current)
-            {
-                if (current->nama == namaPenduduk)
-                {
-                    if (prev)
-                        prev->next = current->next;
-                    else
+void hapusPenduduk( std::string& namaKota, std::string& namaPenduduk) {
+    Kota* temp = head;
+    while (temp) {
+        if (temp->nama == namaKota) {
+            Penduduk* sama = nullptr;
+            Penduduk* current = temp->penduduk;
+            while (current) {
+                if (current->nama == namaPenduduk) {
+                    if (sama == nullptr) {
                         temp->penduduk = current->next;
-                    delete current;
-                    return;
+                        delete current;
+                        std::cout << "Penduduk dengan nama " << namaPenduduk << " dihapus dari kota " << namaKota << "." << std::endl;
+                        return;
+                    } else {
+                        sama->next = current->next;
+                        delete current;
+                        std::cout << "Penduduk dengan nama " << namaPenduduk << " dihapus dari kota " << namaKota << "." << std::endl;
+                        return;
+                    }
+                } else {
+                    sama = current;
+                    current = current->next;
                 }
-                prev = current;
-                current = current->next;
             }
-            cout << "Penduduk tidak ditemukan." << std::endl;
+            std::cout << "Penduduk dengan nama " << namaPenduduk << " tidak ditemukan di kota " << namaKota << "." << std::endl;
             return;
         }
         temp = temp->next;
