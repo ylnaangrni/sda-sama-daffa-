@@ -254,3 +254,78 @@ void urutkanUmurAnggotaPerKota() {
         temp = temp->next;
     }
 }
+
+void anggotaTertua(string namaKota) {
+    Kota *temp = head;
+    int maxUsia = INT_MIN;
+    string namaAnggotaTertua;
+
+    while (temp) {
+        if (temp->nama == namaKota) {
+            Penduduk *tempPenduduk = temp->penduduk;
+            while (tempPenduduk) {
+                if (tempPenduduk->usia > maxUsia) {
+                    maxUsia = tempPenduduk->usia;
+                    namaAnggotaTertua = tempPenduduk->nama;
+                }
+                tempPenduduk = tempPenduduk->next;
+            }
+            std::cout << "Anggota tertua di kota " << namaKota << ": " << namaAnggotaTertua << " (usia " << maxUsia << " tahun)" << std::endl;
+            return;
+        }
+        temp = temp->next;
+    }
+    std::cout << "Kota tidak ditemukan." << std::endl;
+}
+
+void anggotaTermuda(string namaKota) {
+    Kota *temp = head;
+    int minUsia = INT_MAX;
+    string namaAnggotaTermuda;
+
+    while (temp) {
+        if (temp->nama == namaKota) {
+            Penduduk *tempPenduduk = temp->penduduk;
+            while (tempPenduduk) {
+                if (tempPenduduk->usia < minUsia) {
+                    minUsia = tempPenduduk->usia;
+                    namaAnggotaTermuda = tempPenduduk->nama;
+                }
+                tempPenduduk = tempPenduduk->next;
+            }
+            std::cout << "Anggota termuda di kota " << namaKota << ": " << namaAnggotaTermuda << " (usia " << minUsia << " tahun)" << std::endl;
+            return;
+        }
+        temp = temp->next;
+    }
+    std::cout << "Kota tidak ditemukan." << std::endl;
+}
+
+
+void urutkanKota() {
+    Kota *current = head;
+    Kota *index = nullptr;
+    string tempNama;
+
+    if (head == nullptr) {
+        std::cout << "Tidak ada data kota yang perlu diurutkan." << std::endl;
+        return;
+    }
+    else {
+        while (current != nullptr) {
+            index = current->next;
+
+            while (index != nullptr) {
+                // Membandingkan nama kotanya dan menukar jika perlu
+                if (current->nama > index->nama) {
+                    tempNama = current->nama;
+                    current->nama = index->nama;
+                    index->nama = tempNama;
+                }
+                index = index->next;
+            }
+            current = current->next;
+        }
+        std::cout << "Data kota berhasil diurutkan secara ascending berdasarkan nama." << std::endl;
+    }
+}

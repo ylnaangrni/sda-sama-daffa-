@@ -39,5 +39,9 @@ void cariAnggota(string namaKota, string namaPenduduk, int usiaPenduduk);
 void tampilkanJumlahKota();
 void tampilkanJumlahAnggotaPerKota();
 void urutkanUmurAnggotaPerKota();
+void anggotaTertua(string namaKota);
+void anggotaTermuda(string namaKota);
+void urutkanKota();
+
 
 #endif
