@@ -8,7 +8,7 @@ int main()
 {
     std::string namaKota, namaPenduduk, namaPendudukSebelum;
     int usiaPenduduk;
-    char opsi;
+    char opsi,subopsi;
 
     do
     {
@@ -19,10 +19,10 @@ int main()
         std::cout << "| 3. Tambah anggota tengah ke kota    |\n";
         std::cout << "| 4. tambah penduduk akhir ke kota    |\n";
         std::cout << "| 5. Hapus anggota dari kota          |\n";
-        std::cout << "| 6. Tampilkan daftar kota            |\n";
-        std::cout << "| 7. Tampilkan daftar anggota kota    |\n";
-        std::cout << "| 8. Cari data kota                   |\n";
-        std::cout << "| 9. Cari data anggota                |\n";
+        std::cout << "| 6. Menu Tampilkan dan cari          |\n";
+        std::cout << "| 7. Tampilkan Jumlah Kota            |\n";
+        std::cout << "| 8. Jumlah anggota tiap kota         |\n";
+        std::cout << "| 9. urutkan umur                     |\n";
         std::cout << "| 0. Keluar                           |\n";
         std::cout << "=======================================\n";
         std::cout << "Pilihan: ";
@@ -80,32 +80,65 @@ int main()
             std::cout << "Anggota " << namaPenduduk << " berhasil dihapus dari kota " << namaKota << ".\n";
             break;
         case '6':
-            std::cout << "Daftar kota:\n";
-            tampilkanDaftarKota();
-            break;
+        do
+        {
+            std::cout << "1. Tampilkan daftar kota\n";
+            std::cout << "2. Tampilkan daftar anggota kota\n";
+            std::cout << "3. Cari Data Kota\n";
+            std::cout << "4. Cari Anggota\n";
+            std::cout << "0. Kembali ke menu utama\n";
+
+            std::cin >> subopsi;
+            switch (subopsi)
+            {
+            case '1':
+
+                std::cout << "Daftar kota:\n";
+                tampilkanDaftarKota();
+                break;
+            case '2':
+
+                std::cout << "Masukkan nama kota: ";
+                std::cin >> namaKota;
+                std::cout << "Daftar anggota kota " << namaKota << ":\n";
+                tampilkanDaftarAnggota(namaKota);
+                break;
+            case '3':
+
+                std::cout << "Masukkan nama kota yang ingin dicari: ";
+                std::cin >> namaKota;
+                cariDataKota(namaKota);
+                break;
+
+            case '4':
+                std::cout << "Masukkan nama kota: ";
+                std::cin >> namaKota;
+                std::cout << "Masukkan nama anggota yang ingin dicari: ";
+                std::cin >> namaPenduduk;
+                std::cout << "Masukkan usia anggota yang ingin dicari: ";
+                std::cin >> usiaPenduduk;
+                cariAnggota(namaKota, namaPenduduk, usiaPenduduk);
+                break;
+            }
+        } while (subopsi != '0');
+        break;
+
         case '7':
-            std::cout << "Masukkan nama kota: ";
-            std::cin >> namaKota;
-            std::cout << "Daftar anggota kota " << namaKota << ":\n";
-            tampilkanDaftarAnggota(namaKota);
-            break;
+            tampilkanJumlahKota();
+        break;
+
+
         case '8':
-            std::cout << "Masukkan nama kota yang ingin dicari: ";
-            std::cin >> namaKota;
-            cariDataKota(namaKota);
-            break;
+            tampilkanJumlahAnggotaPerKota(); 
+        break;
+
         case '9':
-            std::cout << "Masukkan nama kota: ";
-            std::cin >> namaKota;
-            std::cout << "Masukkan nama anggota yang ingin dicari: ";
-            std::cin >> namaPenduduk;
-            std::cout << "Masukkan usia anggota yang ingin dicari: ";
-            std::cin >> usiaPenduduk;
-            cariAnggota(namaKota, namaPenduduk, usiaPenduduk);
-            break;
+            urutkanUmurAnggotaPerKota();
+            std::cout << "Daftar anggota tiap kota setelah diurutkan berdasarkan umur:\n";
+         tampilkanDaftarKota();
+        break;     
         }
         std::cout << std::endl;
     } while (opsi != '0');
-
     return 0;
 }

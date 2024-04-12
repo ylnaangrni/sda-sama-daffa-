@@ -1,6 +1,7 @@
 #include "LinkedList.h"
 
 Kota *head = nullptr;
+int totalkota = 0;
 
 void tambahKota(string namaKota)
 {
@@ -18,8 +19,14 @@ void tambahKota(string namaKota)
     Kota *newKota = new Kota(namaKota);
     newKota->next = head;
     head = newKota;
+    totalkota++;
 
     std::cout << "Kota " << namaKota << " berhasil ditambahkan.\n";
+}
+
+void tampilkanJumlahKota() 
+{
+    std::cout << "Total jumlah kota yang telah diinput: " << totalkota << std::endl;
 }
 
 void tambahPenduduk(string namaKota, string namaPenduduk, int usiaPenduduk)
@@ -32,11 +39,24 @@ void tambahPenduduk(string namaKota, string namaPenduduk, int usiaPenduduk)
             Penduduk *newPenduduk = new Penduduk(namaPenduduk, usiaPenduduk);
             newPenduduk->next = temp->penduduk;
             temp->penduduk = newPenduduk;
+            temp->totalPenduduk++; 
             return;
         }
         temp = temp->next;
     }
-    std::cout << "Kota tidak ditemukan." << endl;
+    std::cout << "Kota tidak ditemukan." << std::endl;
+}  
+
+
+int hitungJumlahPenduduk(string namaKota) {
+    Kota *temp = head;
+    while (temp) {
+        if (temp->nama == namaKota) {
+            return temp->totalPenduduk;
+        }
+        temp = temp->next;
+    }
+    return 0; // Return 0 if city not found
 }
 
 void tambahPendudukAkhir(string namaKota, string namaPenduduk, int usiaPenduduk)
@@ -50,6 +70,7 @@ void tambahPendudukAkhir(string namaKota, string namaPenduduk, int usiaPenduduk)
             if (temp->penduduk == nullptr)
             {
                 temp->penduduk = newPenduduk;
+                temp->totalPenduduk++; // Increment jumlah anggota
                 return;
             }
             Penduduk *tempPenduduk = temp->penduduk;
@@ -58,13 +79,13 @@ void tambahPendudukAkhir(string namaKota, string namaPenduduk, int usiaPenduduk)
                 tempPenduduk = tempPenduduk->next;
             }
             tempPenduduk->next = newPenduduk;
+            temp->totalPenduduk++; // Increment jumlah anggota
             return;
         }
         temp = temp->next;
     }
     std::cout << "Kota tidak ditemukan." << std::endl;
 }
-
 
 void tambahPendudukTengah(string namaKota, string namaPenduduk, int usiaPenduduk, string namaPendudukSebelum)
 {
@@ -81,6 +102,7 @@ void tambahPendudukTengah(string namaKota, string namaPenduduk, int usiaPenduduk
                 {
                     newPenduduk->next = tempPenduduk->next;
                     tempPenduduk->next = newPenduduk;
+                    temp->totalPenduduk++; // Increment jumlah anggota
                     return;
                 }
                 tempPenduduk = tempPenduduk->next;
@@ -92,6 +114,7 @@ void tambahPendudukTengah(string namaKota, string namaPenduduk, int usiaPenduduk
     }
     std::cout << "Kota tidak ditemukan." << std::endl;
 }
+
 
 
 void hapusPenduduk(string namaKota, string namaPenduduk) {
@@ -190,4 +213,44 @@ void cariAnggota(string namaKota, string namaPenduduk, int usiaPenduduk) {
         temp = temp->next;
     }
     std::cout << "nama tidak ditemukan." << std::endl;
+}
+
+void tampilkanJumlahAnggotaPerKota() {
+    Kota *temp = head;
+    while (temp)
+    {
+        std::cout << "Jumlah anggota kota " << temp->nama << ": " << temp->totalPenduduk << std::endl;
+        temp = temp->next;
+    }
+}
+
+void urutkanUmurAnggotaPerKota() {
+    Kota *temp = head;
+    while (temp) {
+        if (temp->penduduk) {
+            // Bubble sort
+            Penduduk *current = temp->penduduk;
+            Penduduk *nextPenduduk = nullptr;
+            bool swapped;
+            do {
+                swapped = false;
+                current = temp->penduduk;
+                while (current->next != nextPenduduk) {
+                    if (current->usia < current->next->usia) {
+                        // Swap data
+                        string tempNama = current->nama;
+                        int tempUsia = current->usia;
+                        current->nama = current->next->nama;
+                        current->usia = current->next->usia;
+                        current->next->nama = tempNama;
+                        current->next->usia = tempUsia;
+                        swapped = true;
+                    }
+                    current = current->next;
+                }
+                nextPenduduk = current;
+            } while (swapped);
+        }
+        temp = temp->next;
+    }
 }
