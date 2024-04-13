@@ -14,10 +14,13 @@ int main()
         std::cout << "| 2. Tambah anggota awal ke kota      |\n";
         std::cout << "| 3. Tambah anggota tengah ke kota    |\n";
         std::cout << "| 4. Tambah penduduk akhir ke kota    |\n";
+        std::cout << "=======================================\n";
         std::cout << "| 5. Hapus anggota dari kota          |\n";
+        std::cout << "=======================================\n";
         std::cout << "| 6. Menu Tampilkan dan cari          |\n";
         std::cout << "| 7. Tampilkan Anggota Tertua         |\n";
         std::cout << "| 8. Tampilkan Anggota Termuda        |\n";
+        std::cout << "=======================================\n";
         std::cout << "| 9. Urutkan kota dan usia            |\n";
         std::cout << "| 0. Keluar                           |\n";
         std::cout << "=======================================\n";
@@ -28,7 +31,7 @@ int main()
         switch (opsi)
         {
         case '0':
-            std::cout << "Terima kasih, program selesai.\n";
+            std::cout << "program selesai.\n";
             break;
         case '1':
             std::cout << "Masukkan nama kota: ";
@@ -78,14 +81,16 @@ int main()
         case '6':
             do
             {
-                std::cout << "1. Tampilkan daftar kota\n";
-                std::cout << "2. Tampilkan daftar anggota kota\n";
-                std::cout << "3. Tampilkan Jumlah Kota\n";
-                std::cout << "4. Tampilkan Jumlah Anggota \n";
-                std::cout << "5. Cari Anggota\n";
-                std::cout << "6. Cari Data Kota\n";
-                std::cout << "0. Kembali ke menu utama\n";
-
+                std::cout << "=======================================\n";
+                std::cout << "| 1. Tampilkan daftar kota            |\n";
+                std::cout << "| 2. Tampilkan daftar anggota kota    |\n";
+                std::cout << "| 3. Tampilkan Jumlah Kota            |\n";
+                std::cout << "| 4. Tampilkan Jumlah Anggota         |\n";
+                std::cout << "=======================================\n";
+                std::cout << "| 5. Cari Anggota                     |\n";
+                std::cout << "| 6. Cari Data Kota                   |\n";
+                std::cout << "| 0. Kembali ke menu utama            |\n";
+                std::cout << "=======================================\n";
                 std::cin >> subopsi;
                 switch (subopsi)
                 {
@@ -141,9 +146,11 @@ int main()
             }
             break;
         case '9':
-            std::cout << "Pilih jenis pengurutan:\n";
-            std::cout << "1. Urutkan anggota kota berdasarkan usia\n";
-            std::cout << "2. Urutkan kota berdasarkan nama\n";
+            std::cout << "==============================================\n";
+            std::cout << "|      Pilih jenis pengurutan:               |\n";
+            std::cout << "| 1. Urutkan anggota kota berdasarkan usia   |\n";
+            std::cout << "| 2. Urutkan kota berdasarkan nama           |\n";
+            std::cout << "==============================================\n";
             std::cout << "Pilihan: ";
             std::cin >> triopsi;
             switch (triopsi) 

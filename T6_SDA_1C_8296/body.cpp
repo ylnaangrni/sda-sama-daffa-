@@ -217,9 +217,11 @@ void cariAnggota(string namaKota, string namaPenduduk, int usiaPenduduk) {
 
 void tampilkanJumlahAnggotaPerKota() {
     Kota *temp = head;
-    while (temp)
-    {
-        std::cout << "Jumlah anggota kota " << temp->nama << ": " << temp->totalPenduduk << std::endl;
+    while (temp) {
+        // Periksa apakah node temp masih valid
+        if (temp->penduduk) {
+            std::cout << "Jumlah anggota kota " << temp->nama << ": " << temp->totalPenduduk << std::endl;
+        }
         temp = temp->next;
     }
 }
