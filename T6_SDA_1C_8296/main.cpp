@@ -1,3 +1,9 @@
+/* Dibuat oleh*/
+/* Muhammad Daffa Tridya Atha (231511082)*/
+/* Yulina Anggraeni (231511096)*/
+/* 13-04-2024*/
+
+
 #include "LinkedList.h"
 
 int main()
