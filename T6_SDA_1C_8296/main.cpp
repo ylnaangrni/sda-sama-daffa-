@@ -6,6 +6,7 @@
 
 #include "LinkedList.h"
 
+
 int main()
 {
     std::string namaKota, namaPenduduk, namaPendudukSebelum;
@@ -20,14 +21,11 @@ int main()
         std::cout << "| 2. Tambah anggota awal ke kota      |\n";
         std::cout << "| 3. Tambah anggota tengah ke kota    |\n";
         std::cout << "| 4. Tambah penduduk akhir ke kota    |\n";
-        std::cout << "=======================================\n";
         std::cout << "| 5. Hapus anggota dari kota          |\n";
-        std::cout << "=======================================\n";
         std::cout << "| 6. Menu Tampilkan dan cari          |\n";
         std::cout << "| 7. Tampilkan Anggota Tertua         |\n";
         std::cout << "| 8. Tampilkan Anggota Termuda        |\n";
-        std::cout << "=======================================\n";
-        std::cout << "| 9. Urutkan kota dan usia            |\n";
+        std::cout << "| 9. Urutkan kota dan anggota         |\n";
         std::cout << "| 0. Keluar                           |\n";
         std::cout << "=======================================\n";
         std::cout << "Pilihan: ";
@@ -37,7 +35,7 @@ int main()
         switch (opsi)
         {
         case '0':
-            std::cout << "program selesai.\n";
+            std::cout << "Program selesai.\n";
             break;
         case '1':
             std::cout << "Masukkan nama kota: ";
@@ -92,11 +90,11 @@ int main()
                 std::cout << "| 2. Tampilkan daftar anggota kota    |\n";
                 std::cout << "| 3. Tampilkan Jumlah Kota            |\n";
                 std::cout << "| 4. Tampilkan Jumlah Anggota         |\n";
-                std::cout << "=======================================\n";
                 std::cout << "| 5. Cari Anggota                     |\n";
                 std::cout << "| 6. Cari Data Kota                   |\n";
                 std::cout << "| 0. Kembali ke menu utama            |\n";
                 std::cout << "=======================================\n";
+                std::cout << "Pilihan: ";
                 std::cin >> subopsi;
                 switch (subopsi)
                 {
