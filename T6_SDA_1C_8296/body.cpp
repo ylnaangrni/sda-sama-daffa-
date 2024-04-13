@@ -1,5 +1,4 @@
 #include "LinkedList.h"
-#include <climits> 
 
 Kota *head = nullptr;
 int totalkota = 0;
